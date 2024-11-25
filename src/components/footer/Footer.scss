@@ -1,12 +1,25 @@
 .footer {
-    margin-top: 10px;
     background: #f9f9f9;
     padding: 20px;
-    color: #4343448f;
+    color: #333;
+  
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Ensures the footer spans the full height of the viewport */
+  
+    &-content {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 1200px; /* Optional: to constrain content width */
+      gap: 20px; /* Space between sections */
+    }
   
     .footer-section {
+      flex: 1; /* Allows sections to share equal space */
       margin-bottom: 20px;
   
       .footer-title {
@@ -16,7 +29,6 @@
         font-weight: bold;
         cursor: pointer;
         text-align: left;
-        width: 100%;
         padding: 10px 0;
         color: #333;
   
@@ -34,13 +46,14 @@
       }
   
       .footer-links {
+        display: flex; /* Makes links appear in a row */
+        flex-wrap: wrap; /* Allows wrapping if content overflows */
         list-style: none;
         padding-left: 0;
         margin-top: 10px;
-        display: none;
+        gap: 10px; /* Space between links */
   
         li {
-          margin-bottom: 8px;
           color: #333;
           font-size: 1rem;
         }
@@ -50,6 +63,8 @@
     .footer-bottom {
       text-align: center;
       font-size: 0.9rem;
+      margin-top: auto; /* Pushes it to the bottom of the flex container */
+      width: 100%;
   
       a {
         color: #0071e3;
@@ -73,17 +88,17 @@
       }
     }
   
-    @media (min-width: 820px) {
-      .footer-section {
-        .footer-title {
-          cursor: default; // Remove expand/collapse behavior on large screens.
-          &:after {
-            content: ""; // Remove the dropdown indicator.
-          }
-        }
+    // Responsive styles
+    @media (max-width: 820px) {
+      &-content {
+        flex-direction: column; /* Stack sections vertically */
+        align-items: flex-start; /* Align items to the left */
+      }
   
+      .footer-section {
         .footer-links {
-          display: block; // Show content by default.
+          flex-direction: column; /* Stack links vertically */
+          gap: 5px; /* Adjust spacing between links */
         }
       }
     }
