@@ -3,7 +3,7 @@ import Header from './components/header/Header';
 import Hero from './components/hero/Hero';
 import { PRODUCTS } from './static';
 import Product from './components/products/Product';
-import Footer from './components/footer/footer';
+import Footer from './components/footer/Footer';
 
 
 function App() {
